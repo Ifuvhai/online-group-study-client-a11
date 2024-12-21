@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 const NavBar = () => {
-    const isLoggedIn = true; // Change this state dynamically based on authentication
+    const {user, handleSignOut} = useContext(AuthContext); // Change this state dynamically based on authentication
 
     const links = (
         <>
@@ -43,6 +44,11 @@ const NavBar = () => {
         </>
     );
 
+
+    const logOutUser = () => {
+        handleSignOut();
+    }
+
     return (
         <div>
             <div className="navbar bg-base-100 shadow-md">
@@ -79,7 +85,7 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-1">{links}</ul>
                 </div>
                 <div className="navbar-end">
-                    {!isLoggedIn ? (
+                    {!user ? (
                         <Link to="/login" className="btn bg-blue-600 text-white hover:bg-blue-700">
                             Login
                         </Link>
@@ -87,21 +93,21 @@ const NavBar = () => {
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="https://via.placeholder.com/40" alt="Profile" />
+                                    <img src={user?.photoURL} alt="Profile" />
                                 </div>
                             </div>
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                             >
-                                <li className="px-4 py-2 text-gray-700">John Doe</li>
+                                <li className="px-4 py-2 text-gray-700">{user?.displayName}</li>
                                 <li>
                                     <NavLink to="/profile" className="hover:bg-gray-100">
                                         View Profile
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <button className="hover:bg-gray-100">Logout</button>
+                                    <button onClick={logOutUser} className="hover:bg-gray-100">Logout</button>
                                 </li>
                             </ul>
                         </div>

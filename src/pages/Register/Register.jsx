@@ -1,19 +1,80 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const [error, setError] = useState("")
 
+    const navigate = useNavigate();
 
+    const { handleGoogleSignIn, updateUserProfile, handleRegister, user, setUser } = useContext(AuthContext);
+
+    const validatePassword = (password) => {
+        if (password.length < 6) {
+            return "Password must be at least 6 characters long.";
+        }
+        if (!/[A-Z]/.test(password)) {
+            return "Password must contain at least one uppercase letter.";
+        }
+        if (!/[a-z]/.test(password)) {
+            return "Password must contain at least one lowercase letter.";
+        }
+        return ""; 
+    };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const name = e.target.name.value;
+        const photoURL = e.target.photoURL.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        const validationError = validatePassword(password);
+        if (validationError) {
+            setPasswordError(validationError);
+            return;
+        } else {
+            setPasswordError("");
+        }
+
+
+
+        handleRegister(email, password)
+            .then(res => {
+                setUser(res.user);
+                // Swal.fire({
+                //     title: "Successful",
+                //     text: "Registration Successful!",
+                //     icon: "success"
+                //   });
+                navigate("/");
+                // updateUserProfile(name, photoURL)
+            })
+            .catch(err => setError(err.message))
+    }
+
+
+
+    const handleGoogle = () => {
+        handleGoogleSignIn()
+            .then(res => {
+                setUser(res.user);
+                navigate("/");
+            })
+            .catch(err => setError(err.message))
+    }
+
+    console.log(user);
 
     return (
         <div>
              <div className="card bg-base-100 w-full max-w-lg mx-auto shrink-0 shadow-xl mb-10 pb-10">
                     <h2 className="text-3xl font-bold text-gray-600 mt-5 text-center">Please Register</h2>
-                    <form  className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -55,7 +116,7 @@ const Register = () => {
                         </div>
                     </form>
                     <div className="divider w-5/6 mx-auto">OR</div>
-                    <div  className='border-2 cursor-pointer hover:bg-blue-500 hover:text-white rounded-lg w-5/6 mx-auto flex gap-20 p-2'>
+                    <div onClick={handleGoogle} className='border-2 cursor-pointer hover:bg-blue-500 hover:text-white rounded-lg w-5/6 mx-auto flex gap-20 p-2'>
                         <div className='text-3xl pl-4'>
                             <FaGoogle></FaGoogle>
                         </div>

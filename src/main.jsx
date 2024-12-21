@@ -10,6 +10,7 @@ import Register from './pages/Register/Register.jsx'
 import Assignments from './pages/Assignments/Assignments.jsx'
 import CreateAssignment from './pages/CreateAssignment/CreateAssignment.jsx'
 import MyAttempt from './pages/MyAttempt/MyAttempt.jsx'
+import AuthProvider from './provider/AuthProvider/AuthProvider.jsx'
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         path: "*",
         element: <div>error page</div>
       }
-      
+
     ]
   }
 ])
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}>
-    </RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}>
+      </RouterProvider>
+    </AuthProvider>
   </StrictMode>,
 )
