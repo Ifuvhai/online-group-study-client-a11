@@ -2,8 +2,11 @@ import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGooglePlusG } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const [error, setError] = useState("")
+
     const [showPassword, setShowPassword] = useState(false);
 
     const { handleGoogleSignIn, handleLogIn, user, setUser } = useContext(AuthContext);
@@ -19,11 +22,11 @@ const Login = () => {
         handleLogIn(email, password)
             .then(res => {
                 setUser(res.user);
-                // Swal.fire({
-                //     title: "Successful!",
-                //     text: "Logged in successfully!",
-                //     icon: "success"
-                //   });
+                Swal.fire({
+                    title: "Successful!",
+                    text: "Logged in successfully!",
+                    icon: "success"
+                  });
                 navigate(from, { replace: true });
             })
             .catch(err => setError(err.message))
@@ -38,6 +41,7 @@ const Login = () => {
             })
             .catch(err => setError(err.message))
     }
+    console.log(error);
 
     return (
         <div>

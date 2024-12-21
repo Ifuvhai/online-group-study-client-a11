@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -46,11 +47,11 @@ const Register = () => {
         handleRegister(email, password)
             .then(res => {
                 setUser(res.user);
-                // Swal.fire({
-                //     title: "Successful",
-                //     text: "Registration Successful!",
-                //     icon: "success"
-                //   });
+                Swal.fire({
+                    title: "Successful",
+                    text: "Registration Successful!",
+                    icon: "success"
+                  });
                 navigate("/");
                 // updateUserProfile(name, photoURL)
             })
