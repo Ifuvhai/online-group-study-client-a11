@@ -11,6 +11,7 @@ import Assignments from './pages/Assignments/Assignments.jsx'
 import CreateAssignment from './pages/CreateAssignment/CreateAssignment.jsx'
 import MyAttempt from './pages/MyAttempt/MyAttempt.jsx'
 import AuthProvider from './provider/AuthProvider/AuthProvider.jsx'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-assignment",
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
         path: "/attempted-assignments",
-        element: <MyAttempt></MyAttempt>
+        element: <PrivateRoute><MyAttempt></MyAttempt></PrivateRoute>
       },
       {
         path: "*",
