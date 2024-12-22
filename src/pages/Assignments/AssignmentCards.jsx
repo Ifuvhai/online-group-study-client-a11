@@ -37,7 +37,9 @@ const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
                     <p className='w-5/6 overflow-hidden'>{description}</p>
                     <div className="card-actions justify-end">
                         <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
-                        <button className="btn btn-primary">Update</button>
+                        <Link to={`/update/${_id}`}>
+                            <button className="btn btn-primary">Update</button>
+                        </Link>
                         <Link to={`/details/${_id}`}>
                             <button className="btn btn-primary">View Assignment</button>
                         </Link>

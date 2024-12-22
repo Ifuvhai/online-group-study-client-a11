@@ -29,6 +29,8 @@ const Details = () => {
 
         const submission = {
             assignmentId: id,
+            assignmentTitle: assignment.title,
+            assignmentMarks:assignment.marks,
             userEmail: user.email,
             googleDocsLink: submissionData.googleDocsLink,
             note: submissionData.note,
