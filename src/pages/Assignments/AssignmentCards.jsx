@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
-const AssignmentCards = ({data}) => {
-    const {_id, title, description, marks, thumbnail, difficulty} = data;
+const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
+    const { user } = useContext(AuthContext)
+    const { _id, title, description, marks, thumbnail, creator, difficulty } = data;
+
+    const handleDelete = id => {
+        if (creator.email === user.email) {
+            fetch(`http://localhost:5000/assignments/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const updatedAssignments = allAssignments.filter((item) => item._id !== id);
+                    setAllAssignments(updatedAssignments);
+                })
+        }
+        else {
+            console.log("tui abr k akhane");
+        }
+    }
+
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
                 <figure>
                     <img
-                    className='h-80'
+                        className='h-80'
                         src={thumbnail}
                         alt="thumbnail" />
                 </figure>
@@ -15,7 +35,9 @@ const AssignmentCards = ({data}) => {
                     <h2 className="card-title">{title}</h2>
                     <p className='w-5/6 overflow-hidden'>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                        <button className="btn btn-primary">Update</button>
+                        <button className="btn btn-primary">View Assignment</button>
                     </div>
                 </div>
             </div>
