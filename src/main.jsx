@@ -12,6 +12,7 @@ import CreateAssignment from './pages/CreateAssignment/CreateAssignment.jsx'
 import MyAttempt from './pages/MyAttempt/MyAttempt.jsx'
 import AuthProvider from './provider/AuthProvider/AuthProvider.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
+import Details from './pages/Details/Details.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/attempted-assignments",
         element: <PrivateRoute><MyAttempt></MyAttempt></PrivateRoute>
+      },
+      {
+        path: "/details/:id",
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path: "*",

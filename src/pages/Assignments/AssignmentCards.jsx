@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
     const { user } = useContext(AuthContext)
@@ -37,7 +38,9 @@ const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
                     <div className="card-actions justify-end">
                         <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
                         <button className="btn btn-primary">Update</button>
-                        <button className="btn btn-primary">View Assignment</button>
+                        <Link to={`/details/${_id}`}>
+                            <button className="btn btn-primary">View Assignment</button>
+                        </Link>
                     </div>
                 </div>
             </div>
