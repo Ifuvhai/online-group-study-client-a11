@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 
 const CreateAssignment = () => {
+    const {user} = useContext(AuthContext)
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [marks, setMarks] = useState('');
@@ -25,13 +27,24 @@ const CreateAssignment = () => {
             difficulty,
             dueDate,
             creator: {
-                name: creatorName,
-                email: creatorEmail,
+                name: user?.displayName,
+                email: user?.email
             },
         };
 
         // Simulating assignment creation
         console.log('Assignment Created:', assignmentData);
+
+        fetch("http://localhost:5000/assignments",{
+            method: "POST",
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(assignmentData)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+
         setSuccessMessage('Assignment created successfully!');
 
         // Reset form fields
@@ -128,7 +141,7 @@ const CreateAssignment = () => {
                     />
                 </div>
 
-                <div className="optional-section bg-gray-50 p-4 rounded-md border border-gray-200">
+                {/* <div className="optional-section bg-gray-50 p-4 rounded-md border border-gray-200">
                     <h2 className="text-xl font-semibold text-gray-700 mb-4">Optional: Creator Information</h2>
                     <div className="space-y-4">
                         <div>
@@ -153,7 +166,7 @@ const CreateAssignment = () => {
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <button
                     type="submit"
