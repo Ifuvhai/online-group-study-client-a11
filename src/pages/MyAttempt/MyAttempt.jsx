@@ -71,7 +71,7 @@ const MyAttempt = () => {
                                 <td className="border border-gray-300 px-4 py-2 capitalize">{assignment.status}</td>
                                 <td className="border border-gray-300 px-4 py-2">{assignment.assignmentMarks}</td>
                                 <td className="border border-gray-300 px-4 py-2">
-                                    {assignment.obtainedMarks || 'Pending'}
+                                    {assignment.obtainedMarks || 'N/A'}
                                 </td>
                                 <td className="border border-gray-300 px-4 py-2">
                                     {assignment.feedback || 'No feedback yet'}

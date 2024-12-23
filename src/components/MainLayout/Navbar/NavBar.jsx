@@ -41,6 +41,14 @@ const NavBar = () => {
                     My Attempted Assignments
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/pending-assignments"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                    Pending Assignments
+                </NavLink>
+            </li>
         </>
     );
 

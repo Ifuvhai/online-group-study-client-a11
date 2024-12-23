@@ -14,6 +14,7 @@ import AuthProvider from './provider/AuthProvider/AuthProvider.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import Details from './pages/Details/Details.jsx'
 import UpdateAssignment from './pages/UpdateAssignment/UpdateAssignment.jsx'
+import PendingAssignmentsPage from './pages/PendingAssignmentsPage/PendingAssignmentsPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/attempted-assignments",
         element: <PrivateRoute><MyAttempt></MyAttempt></PrivateRoute>
+      },
+      {
+        path: "/pending-assignments",
+        element: <PrivateRoute><PendingAssignmentsPage></PendingAssignmentsPage></PrivateRoute>,
+        loader: ()=> fetch("http://localhost:5000/submission")
       },
       {
         path: "/details/:id",
