@@ -6,11 +6,11 @@ import Footer from './Footer/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <NavBar></NavBar>
+            {/* <NavBar></NavBar> */}
             <section className='min-h-screen'>
                 <Outlet></Outlet>
             </section>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

@@ -20,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    // element: <h1>hellooo</h1>,
     children: [
       {
         path: "/",
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
+    <h1>hello world!!!</h1>
       <RouterProvider router={router}>
       </RouterProvider>
     </AuthProvider>

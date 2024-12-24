@@ -9,31 +9,31 @@ import { auth } from "../../Firebase/firebase.init";
 export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
 
-const AuthProvider = ({children}) => {
-    const [user, setUser] = useState([])
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState([null])
     const [loading, setLoading] = useState(true)
 
     // google login 
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         setLoading(true)
-       return signInWithPopup(auth,provider);
+        return signInWithPopup(auth, provider);
     };
 
     // register user 
-    const handleRegister = (email, password) =>{
+    const handleRegister = (email, password) => {
         setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // login user
-    const handleLogIn = (email, password) =>{
+    const handleLogIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
-    } 
+    }
 
 
     // signOut 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         setLoading(true)
         return signOut(auth);
     }
@@ -48,15 +48,15 @@ const AuthProvider = ({children}) => {
 
 
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
         });
-        return ()=>{
+        return () => {
             unSubscribe();
         }
-    },[])
+    }, [])
 
     const authInfo = {
         handleGoogleSignIn,
