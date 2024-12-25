@@ -16,7 +16,7 @@ const Feature = () => {
                         {/* Feature 1 */}
                         <div className="light:bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
                             <div className="w-16 h-16 mx-auto mb-4">
-                                <img src="https://i.ibb.co.com/L55bDs8/rectangle-2-6.png" alt="Collaboration Icon" className="w-full h-full object-cover" />
+                                <img src="https://i.ibb.co.com/L55bDs8/rectangle-2-6.png" alt="Collaboration Icon" className="w-full h-full rounded-full object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold  mb-2">Collaborative Assignments</h3>
                             <p className="">
@@ -27,7 +27,7 @@ const Feature = () => {
                         {/* Feature 2 */}
                         <div className="light:bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
                             <div className="w-16 h-16 mx-auto mb-4">
-                                <img src="feature-icon2.png" alt="Feedback Icon" className="w-full h-full object-cover" />
+                                <img src="https://i.ibb.co.com/5sC2qms/Copy-of-Hand-held-Standard-Landscape-closed-Kenya.jpg" alt="Feedback Icon" className="w-full h-full rounded-full object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold  mb-2">Peer Review</h3>
                             <p className="">
@@ -38,7 +38,7 @@ const Feature = () => {
                         {/* Feature 3 */}
                         <div className="light:bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
                             <div className="w-16 h-16 mx-auto mb-4">
-                                <img src="feature-icon3.png" alt="User-friendly Icon" className="w-full h-full object-cover" />
+                                <img src="https://i.ibb.co.com/28ndfMZ/Speakers-NEW-4-e1631918280236.jpg" alt="User-friendly Icon" className="w-full h-full rounded-full object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold  mb-2">User-Friendly Design</h3>
                             <p className="">
@@ -49,7 +49,7 @@ const Feature = () => {
                         {/* Feature 4 */}
                         <div className="light:bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
                             <div className="w-16 h-16 mx-auto mb-4">
-                                <img src="feature-icon4.png" alt="Cloud Access Icon" className="w-full h-full object-cover" />
+                                <img src="https://i.ibb.co.com/5s2YMzX/rectangle-2-4.png" alt="Cloud Access Icon" className="w-full h-full  rounded-full object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold  mb-2">Cloud Integration</h3>
                             <p className="">

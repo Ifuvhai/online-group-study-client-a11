@@ -26,7 +26,7 @@ const Assignments = () => {
 
 
     return (
-        <div>
+        <div className='my-10'>
             <h2 className='text-4xl text-center font-bold my-10'>All Assignments</h2>
             {/* Search and Filter Section */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 container mx-auto">

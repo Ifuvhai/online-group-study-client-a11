@@ -10,13 +10,13 @@ const HowItWorks = () => {
     },
     {
       id: 2,
-      icon: "step2-icon.png", // replace with actual icon
+      icon: "https://i.ibb.co.com/TKbg2QK/images-26.jpg", // replace with actual icon
       title: "Collaborate and Complete",
       description: "Work with your group members to complete the assignment and submit it through the platform.",
     },
     {
       id: 3,
-      icon: "step3-icon.png", // replace with actual icon
+      icon: "https://i.ibb.co.com/jGZHmWx/images-21.jpg", // replace with actual icon
       title: "Peer Review and Grade",
       description: "Review and grade the assignments submitted by your peers for continuous learning.",
     },
@@ -37,7 +37,7 @@ const HowItWorks = () => {
             <div key={step.id} className=" p-6 rounded-lg shadow-lg hover:shadow-xl transition">
               {/* Step Icon */}
               <div className="rounded-lg mx-auto mb-4">
-                <img src={step.icon} alt={step.title} className="w-full h-full rounded-xl object-contain" />
+                <img src={step.icon} alt={step.title} className="w-full h-60 rounded-xl object-contain" />
               </div>
               {/* Step Title */}
               <h3 className="text-xl font-semibold light:text-gray-800 mb-2">{step.title}</h3>
