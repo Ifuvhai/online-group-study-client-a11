@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
+import { ThemeContext } from '../../../provider/ThemeProvider/ThemeProvider';
 
 const NavBar = () => {
-    const {user, handleSignOut} = useContext(AuthContext); // Change this state dynamically based on authentication
+    const { theme, toggleTheme } = useContext(ThemeContext);
+    const { user, handleSignOut } = useContext(AuthContext); // Change this state dynamically based on authentication
 
     const links = (
         <>
@@ -41,14 +43,7 @@ const NavBar = () => {
                     My Attempted Assignments
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/pending-assignments"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                    Pending Assignments
-                </NavLink>
-            </li>
+
         </>
     );
 
@@ -93,6 +88,18 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-1">{links}</ul>
                 </div>
                 <div className="navbar-end">
+                <div className='mr-2'>
+                        <input
+                            type="checkbox"
+                            className="toggle"
+                            onChange={(e) => {
+                                const theme = e.target.checked ? "dark" : "light";
+                                document.documentElement.setAttribute("data-theme", theme);
+                                localStorage.setItem("theme", theme);
+                            }}
+                            defaultChecked={localStorage.getItem("theme") === "dark"}
+                        />
+                    </div>
                     {!user ? (
                         <Link to="/login" className="btn bg-blue-600 text-white hover:bg-blue-700">
                             Login
@@ -110,8 +117,11 @@ const NavBar = () => {
                             >
                                 <li className="px-4 py-2 text-gray-700">{user?.displayName}</li>
                                 <li>
-                                    <NavLink to="/profile" className="hover:bg-gray-100">
-                                        View Profile
+                                    <NavLink
+                                        to="/pending-assignments"
+                                        className={({ isActive }) => (isActive ? "active" : "")}
+                                    >
+                                        Pending Assignments
                                     </NavLink>
                                 </li>
                                 <li>

@@ -8,7 +8,7 @@ const AssignmentCard = ({data}) => {
 
   return (
     <>
-    <div className=" bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-all">
+    <div className=" rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-all">
       {/* Card Thumbnail */}
       <div className="relative">
         <img
@@ -25,10 +25,10 @@ const AssignmentCard = ({data}) => {
       {/* Card Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
 
         {/* Description */}
-        <p className="text-gray-600 text-sm mb-4">{description}</p>
+        <p className=" text-sm mb-4">{description}</p>
 
         {/* Marks */}
         <div className="text-gray-500 text-xs mb-4">
@@ -36,12 +36,12 @@ const AssignmentCard = ({data}) => {
         </div>
 
         {/* Due Date */}
-        <div className="text-gray-500 text-xs mb-4">
+        <div className=" text-xs mb-4">
           <span className="font-semibold">Due Date:</span> {formattedDueDate}
         </div>
 
         {/* Creator */}
-        <div className="text-gray-500 text-xs mb-4">
+        <div className=" text-xs mb-4">
           <span className="font-semibold">Creator:</span> {creator?.name || "Unknown"}
         </div>
 

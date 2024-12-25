@@ -31,13 +31,13 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="light:bg-gray-50 py-16">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
+        <h2 className="text-4xl font-bold light:text-gray-800 text-center mb-6">
           Frequently Asked Questions
         </h2>
-        <p className="text-lg text-gray-600 text-center mb-12">
+        <p className="text-lg light:text-gray-600 text-center mb-12">
           Find answers to the most common questions about our platform.
         </p>
 

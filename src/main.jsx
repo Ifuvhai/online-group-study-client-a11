@@ -15,12 +15,12 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import Details from './pages/Details/Details.jsx'
 import UpdateAssignment from './pages/UpdateAssignment/UpdateAssignment.jsx'
 import PendingAssignmentsPage from './pages/PendingAssignmentsPage/PendingAssignmentsPage.jsx'
+import ThemeProvider from './provider/ThemeProvider/ThemeProvider.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // element: <h1>hellooo</h1>,
     children: [
       {
         path: "/",
@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: "/pending-assignments",
         element: <PrivateRoute><PendingAssignmentsPage></PendingAssignmentsPage></PrivateRoute>,
-        loader: ()=> fetch("http://localhost:5000/submission")
+        loader: () => fetch("http://localhost:5000/submission")
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path: "*",
@@ -75,10 +75,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-    <h1>hello world!!!</h1>
-      <RouterProvider router={router}>
-      </RouterProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router}>
+        </RouterProvider>
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 )
