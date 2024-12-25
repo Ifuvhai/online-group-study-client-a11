@@ -27,22 +27,7 @@ const NavBar = () => {
                     Assignments
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/create-assignment"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                    Create Assignment
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/attempted-assignments"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                    My Attempted Assignments
-                </NavLink>
-            </li>
+
 
         </>
     );
@@ -88,7 +73,7 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-1">{links}</ul>
                 </div>
                 <div className="navbar-end">
-                <div className='mr-2'>
+                    <div className='mr-2'>
                         <input
                             type="checkbox"
                             className="toggle"
@@ -106,7 +91,8 @@ const NavBar = () => {
                         </Link>
                     ) : (
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
+                                data-tip={user?.displayName || "Anonymous"}>
                                 <div className="w-10 rounded-full">
                                     <img src={user?.photoURL} alt="Profile" />
                                 </div>
@@ -116,6 +102,22 @@ const NavBar = () => {
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                             >
                                 <li className="px-4 py-2 text-gray-700">{user?.displayName}</li>
+                                <li>
+                                    <NavLink
+                                        to="/create-assignment"
+                                        className={({ isActive }) => (isActive ? "active" : "")}
+                                    >
+                                        Create Assignment
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to="/attempted-assignments"
+                                        className={({ isActive }) => (isActive ? "active" : "")}
+                                    >
+                                        My Attempted Assignments
+                                    </NavLink>
+                                </li>
                                 <li>
                                     <NavLink
                                         to="/pending-assignments"

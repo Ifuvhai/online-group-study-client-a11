@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const UpdateAssignment = () => {
     const { id } = useParams();
@@ -30,7 +31,12 @@ const UpdateAssignment = () => {
             });
 
             if (response.ok) {
-                alert('Assignment updated successfully!');
+                // alert('Assignment updated successfully!');
+                Swal.fire({
+                    title: "Updated!",
+                    text: "Assignment updated successfully!",
+                    icon: "success"
+                  });
                 navigate('/assignments'); // Redirect to assignments page after update
             } else {
                 alert('Failed to update the assignment');

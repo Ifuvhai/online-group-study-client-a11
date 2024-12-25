@@ -1,8 +1,21 @@
-# React + Vite
+# Online Group Study
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This web application for online group study with friends (Every registered user is a friend of others). Users can create assignments, complete them, and grade their friends' assignments. 
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Live Link: (https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+
+# Key Features:
+- use firebase authentication system
+- mongodb atlas as database
+- user can use CRUD operations
+- giving mark and feedback
+- theme toggle dark/light
+
+# NPM Packages:
+- React date-picker
+- Framer Motion
+
+
+

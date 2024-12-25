@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const CreateAssignment = () => {
     const {user} = useContext(AuthContext)
@@ -45,7 +46,12 @@ const CreateAssignment = () => {
         .then(res => res.json())
         .then(data => console.log(data))
 
-        setSuccessMessage('Assignment created successfully!');
+        // setSuccessMessage('Assignment created successfully!');
+        Swal.fire({
+            title: "Good job!",
+            text: "Assignment created successfully!!",
+            icon: "success"
+          });
 
         // Reset form fields
         setTitle('');

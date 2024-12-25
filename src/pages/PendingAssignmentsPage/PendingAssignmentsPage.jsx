@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const PendingAssignmentsPage = () => {
     const { user } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const PendingAssignmentsPage = () => {
     
     useEffect(() => {
         // Fetch pending assignments from the API
-        const data = loadedData.filter(x => x?.userEmail === user?.email && x?.status === "pending")
+        const data = loadedData.filter(x =>  x?.status === "pending")
         setPendingAssignments(data);
     }, []);
 
@@ -41,8 +42,24 @@ const PendingAssignmentsPage = () => {
     };
 
     const handleSubmitMarks = async (id) => {
+    //     const check = pendingAssignments.find(item => item.userEmail === user.email)
+    //    if(check){
+
+    //        Swal.fire({
+    //            icon: "error",
+    //            title: "Oops...",
+    //            text: "You can't mark your own assignment!"
+    //         });
+    //         setOpenModal(false);
+    //         return;
+    //     }
+
         if (!marks || !feedback) {
-            alert("Please fill out both marks and feedback fields.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please fill input field!"
+              });
             return;
         }
 
@@ -58,7 +75,11 @@ const PendingAssignmentsPage = () => {
           });
 
         if (response.ok) {
-            alert("Marks submitted successfully!");
+            Swal.fire({
+                title: "Marked!",
+                text: "Assignment marked successfully!",
+                icon: "success"
+              });
             setOpenModal(false);
             setPendingAssignments(
                 pendingAssignments.filter(
@@ -69,7 +90,6 @@ const PendingAssignmentsPage = () => {
             alert("Failed to submit marks. Please try again.");
         }
     };
-console.log(pendingAssignments);
     return (
         <>
             <TableContainer component={Paper}>
@@ -85,9 +105,9 @@ console.log(pendingAssignments);
                     <TableBody>
                         {pendingAssignments.map((assignment) => (
                             <TableRow key={assignment._id}>
-                                <TableCell>{assignment.assignmentTitle}</TableCell>
-                                <TableCell>{assignment.assignmentMarks}</TableCell>
-                                <TableCell>{user.displayName}</TableCell>
+                                <TableCell>{assignment?.assignmentTitle}</TableCell>
+                                <TableCell>{assignment?.assignmentMarks}</TableCell>
+                                <TableCell>{assignment?.userName}</TableCell>
                                 <TableCell>
                                     <Button
                                         variant="contained"

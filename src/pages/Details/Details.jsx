@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Details = () => {
   const assignment = useLoaderData();
@@ -25,6 +26,7 @@ const Details = () => {
       assignmentTitle: assignment.title,
       assignmentMarks: assignment.marks,
       userEmail: user.email,
+      userName: user.displayName,
       googleDocsLink: submissionData.googleDocsLink,
       note: submissionData.note,
       status: "pending",
@@ -40,7 +42,11 @@ const Details = () => {
       });
 
       if (response.ok) {
-        alert("Assignment submitted successfully!");
+        Swal.fire({
+            title: "Submitted!",
+            text: "Assignment submitted successfully!",
+            icon: "success"
+          });
         setShowModal(false);
       } else {
         alert("Failed to submit the assignment");
