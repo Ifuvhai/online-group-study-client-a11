@@ -3,7 +3,7 @@ import React from 'react';
 const Feature = () => {
     return (
         <div>
-            <section className="light:bg-gray-100 py-16">
+            <section className="light:bg-gray-100 py-16 px-2">
                 <div className="container mx-auto text-center">
                     {/* Section Title */}
                     <h2 className="text-4xl font-bold light:text-gray-800 mb-4">Why Choose Us?</h2>

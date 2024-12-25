@@ -36,7 +36,7 @@ const CreateAssignment = () => {
         // Simulating assignment creation
         console.log('Assignment Created:', assignmentData);
 
-        fetch("http://localhost:5000/assignments",{
+        fetch("https://online-group-study-server-zeta.vercel.app/assignments",{
             method: "POST",
             headers:{
                 "content-type": "application/json"

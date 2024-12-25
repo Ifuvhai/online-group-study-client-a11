@@ -13,7 +13,7 @@ const MyAttempt = () => {
             setError(null); // Reset error state
 
             try {
-                const response = await fetch(`http://localhost:5000/my-assignments?email=${user.email}`, {
+                const response = await fetch(`https://online-group-study-server-zeta.vercel.app/my-assignments?email=${user.email}`, {
                     headers: {
                         'Content-Type': 'application/json',
                     },

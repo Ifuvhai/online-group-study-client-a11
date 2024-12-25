@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/assignments")
+        loader: () => fetch("https://online-group-study-server-zeta.vercel.app/assignments")
       },
       {
         path: "/login",
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/assignments",
         element: <Assignments></Assignments>,
-        loader: () => fetch("http://localhost:5000/assignments")
+        loader: () => fetch("https://online-group-study-server-zeta.vercel.app/assignments")
       },
       {
         path: "/create-assignment",
@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: "/pending-assignments",
         element: <PrivateRoute><PendingAssignmentsPage></PendingAssignmentsPage></PrivateRoute>,
-        loader: () => fetch("http://localhost:5000/submission")
+        loader: () => fetch("https://online-group-study-server-zeta.vercel.app/submission")
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader: ({ params }) => fetch(`https://online-group-study-server-zeta.vercel.app/assignments/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader: ({ params }) => fetch(`https://online-group-study-server-zeta.vercel.app/assignments/${params.id}`)
       },
       {
         path: "*",

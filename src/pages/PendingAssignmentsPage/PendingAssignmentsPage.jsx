@@ -63,7 +63,7 @@ const PendingAssignmentsPage = () => {
             return;
         }
 
-        const response = await fetch(`http://localhost:5000/submission/${id}`, {
+        const response = await fetch(`https://online-group-study-server-zeta.vercel.app/submission/${id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const PendingAssignmentsPage = () => {
         }
     };
     return (
-        <>
+        <div>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
@@ -176,7 +176,7 @@ const PendingAssignmentsPage = () => {
                     )}
                 </Box>
             </Modal>
-        </>
+        </div>
     );
 };
 

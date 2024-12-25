@@ -5,6 +5,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../Firebase/firebase.init";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
@@ -51,6 +52,13 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            // if(currentUser?.email){
+            //     const user = {email: currentUser.email};
+
+            //     axios.post('https://online-group-study-server-zeta.vercel.app/jwt', user)
+            //     .then(res => console.log(res.data))
+
+            // }
             setLoading(false);
         });
         return () => {

@@ -65,8 +65,10 @@ const NavBar = () => {
                             {links}
                         </ul>
                     </div>
+                    <img className='w-20 h-20 object-cover rounded-full' src="https://i.ibb.co.com/PMf1RFY/online-study-logo-design-2cf5cf.jpg" alt="" />
+
                     <a href="/" className="btn btn-ghost text-xl font-bold text-blue-600">
-                        Group Study
+                        Online Study
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

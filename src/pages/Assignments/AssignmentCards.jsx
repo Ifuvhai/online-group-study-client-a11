@@ -20,7 +20,7 @@ const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
             if (result.isConfirmed) {
 
                 if (creator.email === user.email) {
-                    fetch(`http://localhost:5000/assignments/${id}`, {
+                    fetch(`https://online-group-study-server-zeta.vercel.app/assignments/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())
@@ -59,13 +59,16 @@ const AssignmentCards = ({ data, setAllAssignments, allAssignments }) => {
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p className='w-5/6 overflow-hidden'>{description}</p>
-                    <div className="card-actions justify-end">
-                        <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                    <div className=" justify-end">
+                        <div className='flex justify-between'>
+
+                        <button onClick={() => handleDelete(_id)} className="px-2 py-1 bg-green-400 text-white rounded-full">Delete</button>
                         <Link to={`/update/${_id}`}>
-                            <button className="btn btn-primary">Update</button>
+                            <button className="px-2 py-1 bg-green-400 text-white rounded-full">Update</button>
                         </Link>
+                        </div>
                         <Link to={`/details/${_id}`}>
-                            <button className="btn btn-primary">View Assignment</button>
+                            <button className="px-2 py-1 w-full mt-2 bg-green-400 text-white rounded-full">View Assignment</button>
                         </Link>
                     </div>
                 </div>

@@ -29,7 +29,7 @@ const Assignments = () => {
         <div className='my-10'>
             <h2 className='text-4xl text-center font-bold my-10'>All Assignments</h2>
             {/* Search and Filter Section */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 container mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-4 mb-8 container mx-auto">
                 {/* Search Bar */}
                 <form
                     onSubmit={handleSearch}
@@ -68,7 +68,7 @@ const Assignments = () => {
             </div>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-3'>
                 {
                     allAssignments.map(data => <AssignmentCards key={data._id} setAllAssignments={setAllAssignments} allAssignments={allAssignments} data={data}></AssignmentCards>)
                 }

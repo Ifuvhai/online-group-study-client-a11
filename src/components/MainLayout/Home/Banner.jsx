@@ -1,10 +1,11 @@
 import React from 'react';
+import { motion } from "motion/react"
 
 const Banner = () => {
     return (
         <div>
             <section>
-                <div className="carousel w-full h-[470px]">
+                <div className="carousel w-full md:h-[470px]">
                     <div id="slide1" className="h-60 md:h-auto carousel-item relative w-full">
                         <img
                             src="https://i.ibb.co.com/23RB6RT/rocket-space-startup-creative-idea-cover-landing-page-web-site-vector-3482-8461.jpg"
@@ -12,8 +13,11 @@ const Banner = () => {
                             className="w-full object-cover"
                         />
                         <div className="absolute bottom-10 left-10 hidden md:block bg-black bg-opacity-50 text-white p-4 rounded-md">
-                            <h2 className="text-2xl font-bold">Fund 
-                            </h2>
+                            <motion.h2
+                            animate={{color: ['#ecff33', '#33ffe3']}}
+                            transition={{duration: 2, repeat: Infinity}}
+                            className="text-2xl font-bold">Start Up
+                            </motion.h2>
                             <p>Support groundbreaking ideas and help creators bring them to life.</p>
                         </div>
                         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">

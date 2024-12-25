@@ -33,7 +33,7 @@ const Details = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/submissions", {
+      const response = await fetch("https://online-group-study-server-zeta.vercel.app/submissions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

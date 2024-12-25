@@ -23,7 +23,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className=" py-16">
+    <section className=" py-16 px-2">
       <div className="container mx-auto text-center px-4">
         {/* Section Title */}
         <h2 className="text-4xl font-bold text-gray-800 mb-4">How It Works</h2>
