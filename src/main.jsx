@@ -16,6 +16,7 @@ import Details from './pages/Details/Details.jsx'
 import UpdateAssignment from './pages/UpdateAssignment/UpdateAssignment.jsx'
 import PendingAssignmentsPage from './pages/PendingAssignmentsPage/PendingAssignmentsPage.jsx'
 import ThemeProvider from './provider/ThemeProvider/ThemeProvider.jsx'
+import ErrorPage from './ErrorPage/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <div>error page</div>
+        element: <ErrorPage></ErrorPage>
       }
 
     ]
