@@ -4,7 +4,7 @@ This web application for online group study with friends (Every registered user 
 
 Currently, two official plugins are available:
 
-# Live Link: (https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+# Live Link: (https://lillah-fund.web.app/)
 
 # Key Features:
 - use firebase authentication system
