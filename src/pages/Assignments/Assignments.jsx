@@ -7,7 +7,7 @@ const Assignments = () => {
 
     const loadedData = useLoaderData()
     const [allAssignments, setAllAssignments] = useState(loadedData)
-    // console.log(loadedData);
+    console.log(allAssignments);
     const [searchQuery, setSearchQuery] = useState(""); // State for search query
     const [difficulty, setDifficulty] = useState(""); // State for selected difficulty level
 
@@ -29,7 +29,7 @@ const Assignments = () => {
         <div className='my-10'>
             <h2 className='text-4xl text-center font-bold my-10'>All Assignments</h2>
             {/* Search and Filter Section */}
-            <div className="flex flex-col md:flex-row items-center gap-4 mb-8 container mx-auto">
+            <div className="flex flex-col  items-center gap-4 mb-8 container mx-auto">
                 {/* Search Bar */}
                 <form
                     onSubmit={handleSearch}

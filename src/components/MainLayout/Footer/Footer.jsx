@@ -4,8 +4,8 @@ const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
         <aside>
-         <img className='w-20 h-20 rounded-full' src="https://i.ibb.co.com/PMf1RFY/online-study-logo-design-2cf5cf.jpg" alt="" />
-          <p className='text-3xl font-bold text-gray-500'>
+         <img className='w-20 h-20 rounded-full mx-auto' src="https://i.ibb.co.com/PMf1RFY/online-study-logo-design-2cf5cf.jpg" alt="" />
+          <p className='text-3xl font-bold text-blue-600'>
             Online Study
           </p>
         </aside>

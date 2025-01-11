@@ -28,25 +28,25 @@ const AssignmentCard = ({data}) => {
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
 
         {/* Description */}
-        <p className=" text-sm mb-4">{description}</p>
+        <p className=" text-sm mb-2">{description.slice(0, 90)}....</p>
 
         {/* Marks */}
-        <div className="text-gray-500 text-xs mb-4">
+        <div className="text-gray-500 text-xs mb-2">
           <span className="font-semibold">Marks:</span> {marks}
         </div>
 
         {/* Due Date */}
-        <div className=" text-xs mb-4">
+        <div className=" text-xs mb-2">
           <span className="font-semibold">Due Date:</span> {formattedDueDate}
         </div>
 
         {/* Creator */}
-        <div className=" text-xs mb-4">
+        <div className=" text-xs mb-2">
           <span className="font-semibold">Creator:</span> {creator?.name || "Unknown"}
         </div>
 
         {/* View Button */}
-        <div className="mt-6">
+        <div className="mt-3">
             <Link to={`/details/${_id}`}>
           <button
             className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
